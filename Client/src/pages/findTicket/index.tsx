@@ -57,14 +57,18 @@ function Ticket() {
               </Form>
             </Formik>
           </div>
-        </div>
-        <div className="w-full bg-yellow-300 h-[10%]">
-          <div className="flex justify-center">
-            <div className="bg-custom-card w-2/5">
-              <p>TICKET</p>
-            </div>
-            <div className="bg-blue-800">
-              <p>NOME DA EMPRESA</p>
+          <div className="w-1/2 bg-yellow-600 h-20">
+            <div className="flex justify-between">
+              <div className="bg-custom-card w-2/5 h-20">
+                <p className="text-center text-white font-semibold text-2xl p-3">
+                  TICKET
+                </p>
+              </div>
+              <div className="bg-blue-800  w-2/3">
+                <p className="text-center text-white font-semibold text-xl p-3">
+                  NOME DA EMPRESA
+                </p>
+              </div>
             </div>
           </div>
         </div>
