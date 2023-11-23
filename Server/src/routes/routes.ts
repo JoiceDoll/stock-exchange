@@ -1,9 +1,9 @@
 import { Router } from "express";
-import TicketService from "../api/ticket/controllers/findTicket"
+import TicketService from "../api/ticket/controllers/findTickerController"
 
 const routers = Router();
 
-routers.post("/api/podverse/register", TicketService.teste);
+routers.get("/api/find/", TicketService.teste);
 
 
 
