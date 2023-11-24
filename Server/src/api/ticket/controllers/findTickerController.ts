@@ -9,7 +9,6 @@ class findTicket {
       .then(function (response) {
         const [result] = response.data.stocks;
 
-        console.log(result.name);
         const data = {
           name: result.name,
           close: result.close,
