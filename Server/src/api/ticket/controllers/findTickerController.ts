@@ -1,13 +1,18 @@
 import { Request, Response } from "express";
-import TicketService from "../services/findTicketService";
+import axios from "axios";
 
 class findTicket {
-  async teste(req: Request, res: Response) {
-    const ticket = req.query;
-
-    const teste = await TicketService.get(ticket as any);
-    console.log(teste)
-    res.status(200).json({ teste });
+  async get(req: Request, res: Response) {
+    const { ticket } = req.query;
+    await axios
+      .get(process.env.BASE_URL + `search=${ticket}`)
+      .then(function (response) {
+        const result = response.data;
+        return res.status(200).json(result);
+      })
+      .catch(function (error) {
+        return res.status(400).json({ message: "Ticket error", error });
+      });
   }
 }
 
