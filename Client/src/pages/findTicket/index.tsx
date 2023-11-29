@@ -1,5 +1,6 @@
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
+import { api } from "../../services/api";
 
 function Ticket() {
   const validationSchema = Yup.object({
@@ -10,9 +11,10 @@ function Ticket() {
     ticket: "",
   };
 
-  const handleSubmit = (values: any) => {
+  const handleSubmit = async(values: any) => {
     console.log(values.ticket);
-    console.log("teste");
+    const response = await api.get("/find");
+console.log(response)
   };
   return (
     <>
@@ -33,7 +35,7 @@ function Ticket() {
                   Informe o nome do ticket
                 </label>
                 <div className="w-full flex  flex-row align-middle justify-between">
-                  <div className="w-[80%]">
+                  <div className="w-[80%] ">
                     <Field
                       type="text"
                       id="ticket"
