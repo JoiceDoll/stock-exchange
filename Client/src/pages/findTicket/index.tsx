@@ -1,20 +1,24 @@
+import * as React from "react"
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import { api } from "../../services/api";
 
 function Ticket() {
+const [data, setData] = React.useState("")
   const validationSchema = Yup.object({
     ticket: Yup.string().required("Informe o nome do ticket."),
   });
 
+  console.log(data)
   const initialValues = {
     ticket: "",
   };
 
-  const handleSubmit = async(values: any) => {
+  const handleSubmit = async (values: any) => {
     console.log(values.ticket);
-    const response = await api.get("/find");
-console.log(response)
+    const ticket = values.ticket
+    const response = await api.get("/find", { ticket });
+    console.log(response);
   };
   return (
     <>
