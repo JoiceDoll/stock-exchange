@@ -12,12 +12,12 @@ function Ticket() {
   const initialValues = {
     ticket: "",
   };
-
+  console.log(data);
   async function getApi(values: any) {
     const result = values.ticket;
     await api
       .get("/find", { params: { ticket: result } })
-      .then(({ data }) => console.log(data))
+      .then(({ data }) => setData(data))
       .catch((err) => {
         console.error("Error", err);
       });
@@ -73,12 +73,17 @@ function Ticket() {
             <div className="flex justify-between">
               <div className="bg-custom-card w-2/5 h-20">
                 <p className="text-center text-white font-semibold text-2xl p-3">
-                  TICKET
+                  TICKET:
                 </p>
               </div>
               <div className="bg-blue-800  w-2/3">
                 <p className="text-center text-white font-semibold text-xl p-3">
-                  NOME DA EMPRESA
+                  NOME DA EMPRESA: {data.name}
+                </p>
+              </div>
+              <div className="bg-blue-800  w-2/3">
+                <p className="text-center text-white font-semibold text-xl p-3">
+                  COTAÇÃO ATUAL: R$ {data.close}
                 </p>
               </div>
             </div>
