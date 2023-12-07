@@ -1,25 +1,31 @@
-import * as React from "react"
+import * as React from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import { api } from "../../services/api";
 
 function Ticket() {
-const [data, setData] = React.useState("")
+  const [data, setData] = React.useState("");
   const validationSchema = Yup.object({
     ticket: Yup.string().required("Informe o nome do ticket."),
   });
 
-  console.log(data)
   const initialValues = {
     ticket: "",
   };
 
-  const handleSubmit = async (values: any) => {
-    console.log(values.ticket);
-    const ticket = values.ticket
-    const response = await api.get("/find", { ticket });
-    console.log(response);
+  async function getApi(values: any) {
+    const result = values.ticket;
+    await api
+      .get("/find", { params: { ticket: result } })
+      .then(({ data }) => console.log(data))
+      .catch((err) => {
+        console.error("Error", err);
+      });
+  }
+  const handleSubmit = (values: any) => {
+    getApi(values);
   };
+
   return (
     <>
       <div className="bg-custom-ticket-background w-screen h-screen">
