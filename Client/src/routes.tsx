@@ -11,7 +11,9 @@ export default function Router() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/findTicket" element={<Ticket />} />
+        <Route path="/financialData" element={<Ticket />} />
+        <Route path="/companySummary" element={<Ticket />} />
+
       </Routes>
     </BrowserRouter>
   );
