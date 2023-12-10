@@ -4,7 +4,7 @@ import App from "./App.tsx";
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/home";
-import Ticket from "./pages/findTicket";
+import Ticket from "./pages/companySummary/index.tsx";
 
 export default function Router() {
   return (
