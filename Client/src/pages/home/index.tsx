@@ -15,9 +15,9 @@ function Home() {
               <div className="flex flex-col justify-center align-middle w-[100%] gap-3">
                 <img
                   src={EnterpriseIcon}
-                  className="w-[20%] h-[20%] mx-[40%]"
+                  className="w-[20%] h-[20%] mx-[40%] "
                 />
-                <p className="text-center w-[100%]  text-white">
+                <p className="text-center w-[100%]  text-white font-bold">
                   Resumo da empresa
                 </p>
               </div>
@@ -27,7 +27,7 @@ function Home() {
             <div className="w-[100%] h-[100%] bg-custom-card rounded-xl flex justify-center cursor-pointer hover:bg-custom-hover-green">
               <div className="flex flex-col justify-center align-middle w-[100%] gap-3">
                 <img src={EuroIcon} className="w-[20%] h-[20%] mx-[40%]" />
-                <p className="text-center w-[100%]  text-white">
+                <p className="text-center w-[100%]  text-white font-bold">
                   Dados financeiros
                 </p>
               </div>

@@ -1,1 +1,1 @@
-export { EnterpriseIcon, EuroIcon } from "./icons/icons";
+export { EnterpriseIcon, EuroIcon, EnterpriseWhiteIcon } from "./icons/icons";
