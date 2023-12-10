@@ -6,7 +6,7 @@ import { api } from "../../services/api";
 
 export default function Company() {
   const [data, setData] = React.useState("");
-  const [showTicket, setShowTicket] = React.useState(false);
+  const [showTicket, setShowTicket] = React.useState(true);
   const validationSchema = Yup.object({
     ticket: Yup.string().required("Informe o nome do ticket."),
   });
@@ -32,13 +32,16 @@ export default function Company() {
   return (
     <>
       <div className=" w-screen h-screen">
-        {showTicket === false && (
-          <div className="w-screen">
-            <div className="flex  w-[20%] justify-evenly p-3">
-              <img src={EnterpriseWhiteIcon} alt="Enterprise white icon" className="w-[12%] h-[12%]" />
-              <h1 className="text-xl text-white">Resumo da empresa</h1>
-            </div>
-
+        <div className="w-screen">
+          <div className="flex w-[20%] justify-evenly p-3">
+            <img
+              src={EnterpriseWhiteIcon}
+              alt="Enterprise white icon"
+              className="w-[12%] h-[12%]"
+            />
+            <h1 className="text-xl text-white">Resumo da empresa</h1>
+          </div>
+          {showTicket === false && (
             <div className=" w-full flex justify-center my-[5%]">
               <Formik
                 initialValues={initialValues}
@@ -74,9 +77,26 @@ export default function Company() {
                 </Form>
               </Formik>
             </div>
-          </div>
-        )}
-        {showTicket === true && <h1>teste</h1>}
+          )}
+          {showTicket === true && (
+            <div>
+              <div className="w-[60%] bg-yellow-200">
+                <div className="w-full flex justify-evenly">
+                  <div className="w-[30%] bg-red-600 text-center">ticket</div>
+                  <div className="w-[30%] bg-blue-900 text-center">
+                    nome empresa
+                  </div>
+                </div>
+                <div>
+                  <p>teste</p>
+                  <p>teste</p>
+                  <p>teste</p>
+                  <p>teste</p>
+                </div>
+              </div>
+            </div>
+          )}
+        </div>
       </div>
     </>
   );
