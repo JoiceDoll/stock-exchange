@@ -1,9 +1,9 @@
 import { Router } from "express";
-import TicketService from "../api/ticket/controllers/findTickerController"
+import companySummary from "../api/ticket/controllers/companySummary"
 
 const routers = Router();
 
-routers.get("/api/find/", TicketService.get);
+routers.get("/api/summary/", companySummary.get);
 
 
 
