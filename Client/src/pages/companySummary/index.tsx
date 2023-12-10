@@ -35,7 +35,7 @@ export default function Company() {
         {showTicket === false && (
           <div className="w-screen">
             <div className="flex  w-[20%] justify-evenly p-3">
-              <img src={EnterpriseWhiteIcon} className="w-[12%] h-[12%]" />
+              <img src={EnterpriseWhiteIcon} alt="Enterprise white icon" className="w-[12%] h-[12%]" />
               <h1 className="text-xl text-white">Resumo da empresa</h1>
             </div>
 
