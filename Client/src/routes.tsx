@@ -4,16 +4,16 @@ import App from "./App.tsx";
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/home";
-import Ticket from "./pages/companySummary/index.tsx";
+import Company from "./pages/companySummary/index.tsx";
+import Financial from "./pages/financialData/index.tsx";
 
 export default function Router() {
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/financialData" element={<Ticket />} />
-        <Route path="/companySummary" element={<Ticket />} />
-
+        <Route path="/financialData" element={<Financial />} />
+        <Route path="/companySummary" element={<Company />} />
       </Routes>
     </BrowserRouter>
   );

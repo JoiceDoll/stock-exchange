@@ -3,7 +3,7 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import { api } from "../../services/api";
 
-function Ticket() {
+export default function Company() {
   const [data, setData] = React.useState("");
   const validationSchema = Yup.object({
     ticket: Yup.string().required("Informe o nome do ticket."),
@@ -93,5 +93,3 @@ function Ticket() {
     </>
   );
 }
-
-export default Ticket;
