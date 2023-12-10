@@ -1,11 +1,10 @@
 import { Link } from "react-router-dom";
 import { EnterpriseIcon, EuroIcon } from "../../shared";
-// import { EnterpriseIcon } from "../../shared";
 
 function Home() {
   return (
     <>
-      <div className="bg-custom-home-background w-screen h-screen flex flex-col">
+      <div className=" w-screen h-screen flex flex-col">
         <div className="w-screen h-20">
           <p className="p-5 text-xl text-white">Account</p>
         </div>

@@ -7,7 +7,6 @@ export default {
   theme: {
     extend: {
       colors: {
-        "custom-home-background": "#172727",
         "custom-card": "#20CD8D",
         "custom-ticket-background": "#004238",
         "custom-hover-green": "#18a370"
