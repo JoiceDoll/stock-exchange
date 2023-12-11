@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 import axios from "axios";
 
-export default new (class companySummary {
+export default new class companySummary {
   async get(req: Request, res: Response) {
     const { ticket } = req.query;
     try {
@@ -14,8 +14,11 @@ export default new (class companySummary {
       const summary = result.summaryProfile;
 
       const data = {
+        symbol: summary.symbol,
         site: summary.website,
         industry: summary.industry,
+        longBusinessSummary: summary.longBusinessSummary,
+        sector: summary.sector,
       };
 
       return res.status(200).json(data);
@@ -24,4 +27,4 @@ export default new (class companySummary {
       return res.status(500).json({ message: "Internal server error", error });
     }
   }
-})();
+};
