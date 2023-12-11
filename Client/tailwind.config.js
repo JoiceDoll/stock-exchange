@@ -7,6 +7,7 @@ export default {
         "custom-card": "#20CD8D",
         "custom-ticket-background": "#004238",
         "custom-hover-green": "#18a370",
+        "custom-ticket-name": "#2D4048",
       },
     },
   },

@@ -3,10 +3,11 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import { EnterpriseWhiteIcon } from "../../shared";
 import * as Yup from "yup";
 import { api } from "../../services/api";
+import { Link } from "react-router-dom";
 
 export default function Company() {
-  const [data, setData] = React.useState("");
-  const [showTicket, setShowTicket] = React.useState(true);
+  const [data, setData] = React.useState<[]>([]);
+  const [showTicket, setShowTicket] = React.useState(false);
   const validationSchema = Yup.object({
     ticket: Yup.string().required("Informe o nome do ticket."),
   });
@@ -14,11 +15,10 @@ export default function Company() {
   const initialValues = {
     ticket: "",
   };
-  console.log(data);
   async function getApi(values: any) {
     const result = values.ticket;
     await api
-      .get("/find", { params: { ticket: result } })
+      .get("/summary", { params: { ticket: result } })
       .then(({ data }) => setData(data))
       .catch((err) => {
         console.error("Error", err);
@@ -28,6 +28,8 @@ export default function Company() {
     getApi(values);
     setShowTicket(true);
   };
+
+  console.log(data);
 
   return (
     <>
@@ -79,23 +81,43 @@ export default function Company() {
             </div>
           )}
           {showTicket === true && (
-            <div>
-              <div className="w-[60%] bg-yellow-200">
-                <div className="w-full flex justify-evenly">
-                  <div className="w-[30%] bg-red-600 text-center">ticket</div>
-                  <div className="w-[30%] bg-blue-900 text-center">
-                    nome empresa
+            <div className="flex justify-center my-[5%]">
+              <div className="w-[60%] h-96">
+                <div className="w-full flex justify-evenly h-[20%] ">
+                  <div className="w-[30%] bg-custom-ticket-name text-center rounded-lg text-white">
+                    ticket
+                  </div>
+                  <div className="w-[30%] bg-blue-900 text-center rounded-lg">
+                    teste
                   </div>
                 </div>
-                <div>
-                  <p>teste</p>
-                  <p>teste</p>
-                  <p>teste</p>
-                  <p>teste</p>
+                <div className="px-28 py-10">
+                  {Array.isArray(data) &&
+                    data.map((result) => (
+                      <>
+                        <p>
+                          Indústria: <span>{result.industry}</span>
+                        </p>
+                        <p>
+                          Setor: <span>{result.sector}</span>
+                        </p>
+                        <p>
+                          Website: <span>{result.site}</span>
+                        </p>
+                        <p>
+                          Resumo: <span>{result.longBusinessSummary}</span>
+                        </p>
+                      </>
+                    ))}
                 </div>
               </div>
             </div>
           )}
+        </div>
+        <div className="w-full  absolute bottom-0 text-center text-lg font-bold text-custom-card p-2 hover:text-white">
+          <Link to="/">
+            <p>VOLTAR</p>
+          </Link>
         </div>
       </div>
     </>
