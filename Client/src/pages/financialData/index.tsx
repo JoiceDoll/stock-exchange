@@ -5,8 +5,21 @@ import * as Yup from "yup";
 import { api } from "../../services/api";
 import { Link } from "react-router-dom";
 
+interface IFinancial {
+  symbol: string;
+  logourl: string;
+  twoHundredDayAverage: string;
+  regularMarketPrice: string;
+  regularMarketPreviousClose: string;
+  regularMarketOpen: string;
+}
+
+interface IFinancialTicket {
+  ticket: string;
+}
+
 export default function Financial() {
-  const [data, setData] = React.useState<[]>([]);
+  const [data, setData] = React.useState<IFinancial[]>([]);
   const [showTicket, setShowTicket] = React.useState(false);
   const validationSchema = Yup.object({
     ticket: Yup.string().required("Informe o nome do ticket."),
@@ -15,7 +28,7 @@ export default function Financial() {
   const initialValues = {
     ticket: "",
   };
-  async function getApi(values: any) {
+  async function getApi(values: IFinancialTicket) {
     const result = values.ticket;
     await api
       .get("/financial", { params: { ticket: result } })
@@ -24,12 +37,10 @@ export default function Financial() {
         console.error("Error", err);
       });
   }
-  const handleSubmit = (values: any) => {
+  const handleSubmit = (values: IFinancialTicket) => {
     getApi(values);
     setShowTicket(true);
   };
-
-  console.log(data);
 
   return (
     <>
@@ -102,7 +113,7 @@ export default function Financial() {
                         <p className="text-[1.3rem] text-white">
                           Média de duzentos dias:
                           <span className="text-custom-card">
-                          R$:{result.twoHundredDayAverage}
+                            R$:{result.twoHundredDayAverage}
                           </span>
                         </p>
                         <p className="text-[1.3rem] text-white">

@@ -5,8 +5,22 @@ import * as Yup from "yup";
 import { api } from "../../services/api";
 import { Link } from "react-router-dom";
 
+interface ITicket {
+  ticket: string;
+}
+
+interface ISummary {
+  symbol: string;
+  logourl: string;
+  industry: string;
+  sector: string;
+  site: string;
+  city: string;
+  country: string;
+}
+
 export default function Company() {
-  const [data, setData] = React.useState<[]>([]);
+  const [data, setData] = React.useState<ISummary[]>([]);
   const [showTicket, setShowTicket] = React.useState(false);
   const validationSchema = Yup.object({
     ticket: Yup.string().required("Informe o nome do ticket."),
@@ -15,7 +29,7 @@ export default function Company() {
   const initialValues = {
     ticket: "",
   };
-  async function getApi(values: any) {
+  async function getApi(values: ITicket): Promise<void> {
     const result = values.ticket;
     await api
       .get("/summary", { params: { ticket: result } })
@@ -24,12 +38,10 @@ export default function Company() {
         console.error("Error", err);
       });
   }
-  const handleSubmit = (values: any) => {
+  const handleSubmit = (values: ITicket) => {
     getApi(values);
     setShowTicket(true);
   };
-
-  console.log(data);
 
   return (
     <>
