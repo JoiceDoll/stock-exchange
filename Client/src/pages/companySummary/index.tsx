@@ -35,7 +35,7 @@ export default function Company() {
     <>
       <div className=" w-screen h-screen">
         <div className="w-screen">
-          <div className="flex w-[20%] justify-evenly p-3">
+          <div className="flex w-[20%] justify-evenly p-3 static">
             <img
               src={EnterpriseWhiteIcon}
               alt="Enterprise white icon"
@@ -84,28 +84,50 @@ export default function Company() {
             <div className="flex justify-center my-[5%]">
               <div className="w-[60%] h-96">
                 <div className="w-full flex justify-evenly h-[20%] ">
-                  <div className="w-[30%] bg-custom-ticket-name text-center rounded-lg text-white">
-                    ticket
+                  <div className="w-[30%] bg-custom-ticket-name text-center rounded-lg text-white p-2 ">
+                    {Array.isArray(data) &&
+                      data.map((result) => (
+                        <p className="text-[2rem]">{result.symbol}</p>
+                      ))}
                   </div>
-                  <div className="w-[30%] bg-blue-900 text-center rounded-lg">
-                    teste
+                  <div className="w-[30%] text-center rounded-lg flex align-middle justify-center">
+                    {Array.isArray(data) &&
+                      data.map((result) => <img src={result.logourl} />)}
                   </div>
                 </div>
                 <div className="px-28 py-10">
                   {Array.isArray(data) &&
                     data.map((result) => (
                       <>
-                        <p>
-                          Indústria: <span>{result.industry}</span>
+                        <p className="text-[1.3rem] text-white">
+                          Indústria:{" "}
+                          <span className="text-custom-card">
+                            {result.industry}
+                          </span>
                         </p>
-                        <p>
-                          Setor: <span>{result.sector}</span>
+                        <p className="text-[1.3rem] text-white">
+                          Setor:{" "}
+                          <span className="text-custom-card">
+                            {result.sector}
+                          </span>
                         </p>
-                        <p>
-                          Website: <span>{result.site}</span>
+                        <p className="text-[1.3rem] text-white">
+                          Website:{" "}
+                          <span className="text-custom-card">
+                            {result.site}
+                          </span>
                         </p>
-                        <p>
-                          Resumo: <span>{result.longBusinessSummary}</span>
+                        <p className="text-[1.3rem] text-white">
+                          Cidade:{" "}
+                          <span className="text-custom-card">
+                            {result.city}
+                          </span>
+                        </p>
+                        <p className="text-[1.3rem] text-white">
+                          País:{" "}
+                          <span className="text-custom-card">
+                            {result.country}
+                          </span>
                         </p>
                       </>
                     ))}
