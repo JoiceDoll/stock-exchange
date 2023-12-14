@@ -47,16 +47,18 @@ export default function Company() {
     <>
       <div className=" w-screen h-screen">
         <div className="w-screen">
-          <div className="flex w-[20%] justify-evenly p-3 static">
+          <div className="flex w-[65%] sm:w-[20%] md:w-[38%] lg:w-[35%] justify-evenly md:p-4 p-3 static">
             <img
               src={EnterpriseWhiteIcon}
               alt="Enterprise white icon"
               className="w-[12%] h-[12%]"
             />
-            <h1 className="text-xl text-white">Resumo da empresa</h1>
+            <h1 className="text-xl text-white md:text-2xl xl:text-4xl">
+              Resumo da empresa
+            </h1>
           </div>
           {showTicket === false && (
-            <div className=" w-full flex justify-center my-[5%]">
+            <div className=" w-full flex justify-center my-[20%] sm:my-[5%] ">
               <Formik
                 initialValues={initialValues}
                 validationSchema={validationSchema}
@@ -83,7 +85,7 @@ export default function Company() {
 
                     <button
                       type="submit"
-                      className="bg-custom-card w-[15%] hover:bg-custom-hover-green"
+                      className="bg-custom-card w-[25%] sm:w-[20%] hover:bg-custom-hover-green"
                     >
                       Procurar
                     </button>
@@ -93,13 +95,13 @@ export default function Company() {
             </div>
           )}
           {showTicket === true && (
-            <div className="flex justify-center my-[5%]">
-              <div className="w-[60%] h-96">
+            <div className="flex justify-center sm:my-[5%] my-[20%] ">
+              <div className="sm:w-[60%] w-[90%] h-96">
                 <div className="w-full flex justify-evenly h-[20%] ">
                   <div className="w-[30%] bg-custom-ticket-name text-center rounded-lg text-white p-2 ">
                     {Array.isArray(data) &&
                       data.map((result) => (
-                        <p className="text-[2rem]">{result.symbol}</p>
+                        <p className="text-[1.8rem] sm:text-[2rem]">{result.symbol}</p>
                       ))}
                   </div>
                   <div className="w-[30%] text-center rounded-lg flex align-middle justify-center">
@@ -107,7 +109,7 @@ export default function Company() {
                       data.map((result) => <img src={result.logourl} />)}
                   </div>
                 </div>
-                <div className="px-28 py-10">
+                <div className="px-7 sm:px-20 lg:px-24 xl:px-32 py-10">
                   {Array.isArray(data) &&
                     data.map((result) => (
                       <>

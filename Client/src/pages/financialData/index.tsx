@@ -46,16 +46,18 @@ export default function Financial() {
     <>
       <div className=" w-screen h-screen">
         <div className="w-screen">
-          <div className="flex w-[20%] justify-evenly p-3">
+          <div className="flex w-[65%] sm:w-[20%] md:w-[38%] lg:w-[35%] justify-evenly md:p-4 p-3 static">
             <img
               src={FinancialWhite}
               alt="Enterprise white icon"
               className="w-[12%] h-[12%]"
             />
-            <h1 className="text-xl text-white">Dados financeiros</h1>
+            <h1 className="text-xl text-white md:text-2xl xl:text-4xl">
+              Dados financeiros
+            </h1>
           </div>
           {showTicket === false && (
-            <div className=" w-full flex justify-center my-[5%]">
+            <div className="w-full flex justify-center my-[20%] sm:my-[5%]">
               <Formik
                 initialValues={initialValues}
                 validationSchema={validationSchema}
@@ -92,9 +94,9 @@ export default function Financial() {
             </div>
           )}
           {showTicket === true && (
-            <div className="flex justify-center my-[5%]">
-              <div className="w-[60%] h-96">
-                <div className="w-full flex justify-evenly h-[20%] ">
+            <div className="flex justify-center sm:my-[5%] my-[20%] ">
+              <div className="sm:w-[60%] w-[90%] h-96">
+                <div className="w-full flex justify-evenly h-[20%]">
                   <div className="w-[30%] bg-custom-ticket-name text-center rounded-lg text-white">
                     {Array.isArray(data) &&
                       data.map((result) => (
@@ -106,7 +108,7 @@ export default function Financial() {
                       data.map((result) => <img src={result.logourl} />)}
                   </div>
                 </div>
-                <div className="px-28 py-10">
+                <div className=" px-7 sm:px-20 lg:px-24 xl:px-32 py-10">
                   {Array.isArray(data) &&
                     data.map((result) => (
                       <>
