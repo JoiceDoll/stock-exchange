@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 import axios from "axios";
 
-export default new class financialData {
+export default new (class financialData {
   async get(req: Request, res: Response) {
     const { ticket } = req.query;
     try {
@@ -11,15 +11,17 @@ export default new class financialData {
 
       const { results } = response.data;
       const [result] = results;
-      const financial = result.summaryProfile;
 
-      const data = {
-        symbol: financial.symbol,
-        twoHundredDayAverage: financial.twoHundredDayAverage,
-        regularMarketPrice: financial.regularMarketPrice,
-        priceEarnings: financial.priceEarnings,
-        fullTimeEmployees: financial.fullTimeEmployees,
-      };
+      const data = [
+        {
+          symbol: result.symbol,
+          twoHundredDayAverage: result.twoHundredDayAverage,
+          regularMarketPrice: result.regularMarketPrice,
+          regularMarketPreviousClose: result.regularMarketPreviousClose,
+          regularMarketOpen: result.regularMarketOpen,
+          logourl: result.logourl,
+        },
+      ];
 
       return res.status(200).json(data);
     } catch (error) {
@@ -27,4 +29,4 @@ export default new class financialData {
       return res.status(500).json({ message: "Internal server error", error });
     }
   }
-};
+})();
