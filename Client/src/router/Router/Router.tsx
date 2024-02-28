@@ -1,11 +1,11 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import App from "./App.tsx";
+import App from "@/App.tsx"
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Home from "./pages/home";
-import Company from "./pages/companySummary/index.tsx";
-import Financial from "./pages/financialData/index.tsx";
+
+
+import {Home, Company, Financial} from "@/pages"
 
 export default function Router() {
   return (
