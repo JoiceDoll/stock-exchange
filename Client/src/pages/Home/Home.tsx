@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { EnterpriseIcon, EuroIcon } from "../../shared";
+import { EnterpriseIcon, EuroIcon } from "@/shared";
 
 function Home() {
   return (

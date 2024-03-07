@@ -1,11 +1,14 @@
 import "./index.css";
-import "./shared/css/global.css"
-import Router from "./router/Router/Router";
+import "./shared/css/global.css";
+import { Router } from "@/router";
+import { BrowserRouter } from "react-router-dom";
 
 function App() {
   return (
     <>
-      <Router />
+      <BrowserRouter>
+        <Router />
+      </BrowserRouter>
     </>
   );
 }
