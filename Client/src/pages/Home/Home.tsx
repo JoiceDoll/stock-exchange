@@ -13,7 +13,7 @@ function Home() {
 
         <div className="w-[60%] sm:h-[45%] h-[90%] flex flex-col sm:flex-row  justify-around absolute right-0  top-10 sm:top-40 cursor-pointer">
           <Link
-            to="/companySummary"
+            to="/company"
             className="sm:w-[40%] w-[65%] h-[30%] sm:h-[100%] md:w-[45%] lg:w-[35%] xl:w-[30%]"
           >
             <div className="w-[100%] h-[100%] bg-custom-card rounded-xl flex justify-center hover:bg-custom-hover-green">
@@ -30,7 +30,7 @@ function Home() {
             </div>
           </Link>
           <Link
-            to="/financialData "
+            to="/financial "
             className="sm:w-[40%] w-[65%] h-[30%] sm:h-[100%]  md:w-[45%] lg:w-[35%] xl:w-[30%]"
           >
             <div className="w-[100%] h-[100%] bg-custom-card rounded-xl flex justify-center cursor-pointer hover:bg-custom-hover-green">

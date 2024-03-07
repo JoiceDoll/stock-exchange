@@ -1,9 +1,9 @@
 import * as React from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { FinancialWhite } from "../../shared/icons/icons";
-import * as Yup from "yup";
 import { api } from "../../services/api";
 import { Link } from "react-router-dom";
+import { validationSchema } from "./validation";
 
 interface IFinancial {
   symbol: string;
@@ -21,13 +21,11 @@ interface IFinancialTicket {
 export default function Financial() {
   const [data, setData] = React.useState<IFinancial[]>([]);
   const [showTicket, setShowTicket] = React.useState(false);
-  const validationSchema = Yup.object({
-    ticket: Yup.string().required("Informe o nome do ticket."),
-  });
 
   const initialValues = {
     ticket: "",
   };
+
   async function getApi(values: IFinancialTicket) {
     const result = values.ticket;
     await api
@@ -37,6 +35,7 @@ export default function Financial() {
         console.error("Error", err);
       });
   }
+
   const handleSubmit = (values: IFinancialTicket) => {
     getApi(values);
     setShowTicket(true);
@@ -46,7 +45,7 @@ export default function Financial() {
     <>
       <div className=" w-screen h-screen">
         <div className="w-screen">
-          <div className="flex w-[65%] sm:w-[20%] md:w-[38%] lg:w-[35%] justify-evenly md:p-4 p-3 static">
+          <div className="bg-slate-700 flex w-[65%] sm:w-[20%] md:w-[38%] lg:w-[35%] justify-evenly md:p-4 p-3 static">
             <img
               src={FinancialWhite}
               alt="Enterprise white icon"

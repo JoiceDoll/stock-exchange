@@ -1,9 +1,9 @@
 import * as React from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { EnterpriseWhiteIcon } from "../../shared";
-import * as Yup from "yup";
 import { api } from "../../services/api";
 import { Link } from "react-router-dom";
+import { validationSchema } from "./validation";
 
 interface ITicket {
   ticket: string;
@@ -22,9 +22,6 @@ interface ISummary {
 export default function Company() {
   const [data, setData] = React.useState<ISummary[]>([]);
   const [showTicket, setShowTicket] = React.useState(false);
-  const validationSchema = Yup.object({
-    ticket: Yup.string().required("Informe o nome do ticket."),
-  });
 
   const initialValues = {
     ticket: "",
