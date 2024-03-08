@@ -8,4 +8,5 @@ A project using React.js, Vite, Tailwind, Express, Axios, and Node.js with Docke
 
 #Mobile
 
-![Account](https://github.com/JoiceDoll/stock-exchange/assets/99621429/dd471fe6-efa3-4742-ae3c-125bb627e0a0)
+
+![Account (1)](https://github.com/JoiceDoll/stock-exchange/assets/99621429/42dd00b1-5734-4f22-930d-9df499c86beb)
